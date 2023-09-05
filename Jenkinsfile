@@ -17,10 +17,10 @@ pipeline {
                      def repoUrl = ''
                      def subDirectory = ''
                     if (params.awsService == 'EC2') {
-                        repoUrl = "https://github.com/Hariprasadchellamuthu/Terraform1.git"
+                        repoUrl = "https://github.com/Hariprasadchellamuthu/terraorm-s3-ec2-2.git"
                         subDirectory = 'ec2'
                     } else if (params.awsService == 'S3') {
-                               repoUrl =  "https://github.com/Hariprasadchellamuthu/Terraform2.git"
+                               repoUrl =  "https://github.com/Hariprasadchellamuthu/terraorm-s3-ec2-2.git"
                                subDirectory = 's3' 
                     } else {
                                 error("Invalid AWS service selection")
