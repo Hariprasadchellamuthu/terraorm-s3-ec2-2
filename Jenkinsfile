@@ -58,8 +58,8 @@ pipeline {
 
         stage('Apply') {
             steps {
-                echo "Terraform action is --> ${action}"
-                sh "terraform apply -input=false tfplan"
+                echo "terraform apply is --> ${action}"
+                sh "terraform ${action} -input=false tfplan"
             }
         }
     }
