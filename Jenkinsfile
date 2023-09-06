@@ -35,7 +35,8 @@ pipeline {
         stage('Plan') {
             steps {
                 sh "terraform init"
-                sh "terraform plan -out tfplan"
+                echo "terraform plan is --> ${action}"
+                sh "terraform ${action} -out tfplan"
                 sh "terraform show -no-color tfplan > tfplan.txt"
                 sh "ls -l" 
             }
@@ -58,8 +59,7 @@ pipeline {
 
         stage('Apply') {
             steps {
-                echo "terraform apply is --> ${action}"
-                sh "terraform ${action} -input=false tfplan"
+                sh "terraform apply -input=false tfplan"
             }
         }
     }
